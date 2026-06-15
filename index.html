@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Payel Mukhopadhyay</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#faf8f4;--bg2:#f3f0ea;--bg3:#edeae2;--card:#fff;
+  --border:#e0dbd0;--border2:#ccc8bc;
+  --gold:#8a6a1f;--gold-mid:#b8892a;--gold-light:#f5ecd4;
+  --muted:#7a7468;--text:#1e1c18;--text2:#4a4640;
+  --accent:#1a5fa8;--accent-bg:#e8f0fb;
+  --teal:#0e6e5e;--teal-bg:#e4f4f0;
+  --serif:'EB Garamond',Georgia,serif;
+  --sans:'Instrument Sans',sans-serif;
+  --mono:'DM Mono',monospace;
+  --max:720px;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.7}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-mid);text-decoration:underline}
+
+nav{border-bottom:1px solid var(--border);padding:.9rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(250,248,244,.97);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+.nav-name{font-family:var(--serif);font-size:.95rem;color:var(--gold)}
+.nav-links{display:flex;gap:1.4rem}
+.nav-links a{font-family:var(--mono);font-size:.67rem;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+
+.page{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+.intro{padding:4rem 0 3rem;display:grid;grid-template-columns:1fr 160px;gap:2.5rem;align-items:start}
+.intro-name{font-family:var(--serif);font-size:2.6rem;font-weight:400;line-height:1.05;margin-bottom:.35rem;color:var(--text)}
+.intro-name em{font-style:italic;color:var(--gold)}
+.intro-pos{font-size:.83rem;color:var(--text2);line-height:1.75;margin-bottom:1.2rem}
+.intro-pos strong{font-weight:600;color:var(--text)}
+.intro-links{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.6rem}
+.intro-links a{font-family:var(--mono);font-size:.67rem;color:var(--muted);letter-spacing:.05em;text-decoration:none;transition:color .2s}
+.intro-links a:hover{color:var(--gold)}
+.intro-links span{color:var(--border2)}
+.photo{width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid var(--border);box-shadow:0 4px 20px rgba(138,106,31,.1);display:block}
+.photo-placeholder{width:150px;height:150px;border-radius:50%;background:var(--bg2);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:2.5rem;color:var(--border2)}
+.cv-link{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--mono);font-size:.72rem;color:var(--gold);border:1px solid rgba(138,106,31,.3);padding:.35rem .8rem;border-radius:4px;text-decoration:none;transition:all .2s}
+.cv-link:hover{background:var(--gold-light);text-decoration:none}
+
+hr{border:none;border-top:1px solid var(--border);margin:0}
+
+.sec{padding:2.8rem 0}
+.sec+.sec{border-top:1px solid var(--border)}
+.sec-title{font-family:var(--serif);font-size:1.35rem;font-weight:400;color:var(--text);margin-bottom:1.3rem}
+.prose{font-size:.9rem;color:var(--text2);line-height:1.88}
+.prose p+p{margin-top:.95rem}
+.prose strong{color:var(--text);font-weight:600}
+
+.tag-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem}
+.tag{font-family:var(--mono);font-size:.65rem;padding:.18rem .55rem;border-radius:3px}
+.tag-p{background:var(--teal-bg);color:var(--teal);border:1px solid rgba(14,110,94,.18)}
+.tag-m{background:var(--accent-bg);color:var(--accent);border:1px solid rgba(26,95,168,.16)}
+
+/* CAREER TRAJECTORY */
+.timeline{position:relative;padding-left:1.6rem}
+.timeline::before{content:'';position:absolute;left:0;top:.4rem;bottom:0;width:1px;background:var(--border)}
+.t-item{position:relative;margin-bottom:1.85rem}
+.t-item:last-child{margin-bottom:0}
+.t-dot{position:absolute;left:-1.98rem;top:.32rem;width:8px;height:8px;border-radius:50%;background:var(--bg);border:2px solid var(--gold-mid)}
+.t-head{display:flex;justify-content:space-between;gap:.4rem;flex-wrap:wrap;margin-bottom:.15rem}
+.t-role{font-size:.86rem;font-weight:600;color:var(--text)}
+.t-period{font-family:var(--mono);font-size:.65rem;color:var(--muted)}
+.t-org{font-size:.78rem;color:var(--gold);margin-bottom:.3rem;font-style:italic;font-family:var(--serif)}
+.t-desc{font-size:.76rem;color:var(--text2);line-height:1.74}
+.traj-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.traj-col-title{font-family:var(--mono);font-size:.63rem;color:var(--teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.2rem}
+
+/* PAPERS */
+.pub-meta-row{display:flex;gap:2rem;margin-bottom:1.4rem;padding-bottom:1.3rem;border-bottom:1px solid var(--border)}
+.pub-stat-num{font-family:var(--serif);font-size:1.6rem;color:var(--gold);font-style:italic}
+.pub-stat-label{font-family:var(--mono);font-size:.6rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:.1rem}
+
+.tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:1.7rem}
+.tab{padding:.58rem 1.15rem;font-size:.72rem;font-family:var(--mono);letter-spacing:.06em;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s;background:none;border-top:none;border-left:none;border-right:none}
+.tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab:hover{color:var(--text2)}
+
+.papers-list{display:flex;flex-direction:column;gap:.75rem}
+.paper{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:1rem 1.15rem;display:grid;grid-template-columns:26px 1fr auto;gap:.75rem;align-items:start;transition:border-color .2s}
+.paper:hover{border-color:var(--border2)}
+.p-num{font-family:var(--mono);font-size:.64rem;color:var(--muted);padding-top:.12rem}
+.p-title{font-size:.84rem;color:var(--text);font-weight:500;line-height:1.5;margin-bottom:.26rem}
+.p-meta{font-size:.72rem;color:var(--muted);font-family:var(--mono)}
+.p-badges{display:flex;flex-direction:column;gap:.28rem;align-items:flex-end}
+.p-badge{font-family:var(--mono);font-size:.62rem;padding:.2rem .5rem;border-radius:3px;white-space:nowrap}
+.v-ml{background:var(--accent-bg);color:var(--accent);border:1px solid rgba(26,95,168,.2)}
+.v-ap{background:var(--teal-bg);color:var(--teal);border:1px solid rgba(14,110,94,.2)}
+.v-spot{background:#fef3d0;color:#7a5000;border:2px solid #c8940a;font-weight:600}
+.full-list-note{font-size:.8rem;color:var(--muted);margin-top:1.2rem}
+.key{font-size:.74rem;color:var(--muted);margin-bottom:1.3rem;font-family:var(--mono)}
+
+.media-list{display:flex;flex-direction:column;gap:.95rem}
+.media-item{display:grid;grid-template-columns:52px 1fr;gap:.8rem;align-items:start}
+.media-badge{font-family:var(--mono);font-size:.6rem;padding:.2rem .45rem;border-radius:3px;text-align:center;margin-top:.1rem}
+.mb-press{background:var(--accent-bg);color:var(--accent);border:1px solid rgba(26,95,168,.18)}
+.mb-video{background:var(--gold-light);color:var(--gold);border:1px solid rgba(138,106,31,.2)}
+.mb-blog{background:var(--teal-bg);color:var(--teal);border:1px solid rgba(14,110,94,.18)}
+.media-title{font-size:.85rem;color:var(--text);font-weight:500;line-height:1.4;margin-bottom:.18rem}
+.media-sub{font-family:var(--mono);font-size:.68rem;color:var(--muted)}
+.ph{font-style:italic;color:var(--border2)}
+
+.contact-block{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.cc-label{font-family:var(--mono);font-size:.63rem;color:var(--teal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+.cc-val{font-size:.85rem;color:var(--text2);line-height:1.75}
+.cc-val a{color:var(--gold)}
+
+footer{border-top:1px solid var(--border);padding:1.5rem;text-align:center;font-family:var(--mono);font-size:.65rem;color:var(--muted);background:var(--bg2)}
+
+@media(max-width:560px){
+  .intro{grid-template-columns:1fr;padding:2.5rem 0 2rem}
+  .photo,.photo-placeholder{width:100px;height:100px;font-size:1.8rem;order:-1}
+  .contact-block,.traj-grid{grid-template-columns:1fr}
+  nav{padding:.8rem 1rem}
+  .nav-links{gap:.8rem}
+  .paper{grid-template-columns:20px 1fr}
+  .p-badges{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Dr. Payel Mukhopadhyay</div>
+  <div class="nav-links">
+    <a href="#research">Research</a>
+    <a href="#papers">Papers</a>
+    <a href="#background">Background</a>
+    <a href="#media">Media</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="intro">
+    <div>
+      <div class="intro-name">Dr. Payel Mukhopadhyay</div>
+      <div class="intro-pos">
+        <strong>Assistant Research Professor</strong><br>
+        DAMTP, University of Cambridge<br>
+        Physics-AI Fellow, Infosys–Cambridge AI Centre<br>
+      </div>
+      <div class="intro-links">
+        <a href="mailto:pm858@cam.ac.uk">pm858@cam.ac.uk</a>
+        <span>·</span>
+        <a href="https://scholar.google.com/citations?user=KtPHj74AAAAJ&hl=en" target="_blank">Google Scholar</a>
+        <span>·</span>
+        <a href="https://github.com/payelmuk150" target="_blank">GitHub</a>
+        <span>·</span>
+        <a href="https://www.linkedin.com/in/payel-mukhopadhyay-5529b026b/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <img src="Payel_headshot.jpg" class="photo" alt="Dr. Payel Mukhopadhyay">
+  </div>
+
+  <hr>
+
+  <!-- RESEARCH -->
+  <div class="sec" id="research">
+    <div class="sec-title">Research</div>
+    <div class="prose">
+      <p>My research is at the intersection of machine learning and the physical sciences. I came to this from astrophysics - fluid flows around supernovae, neutron star mergers, neutrino physics, cosmic rays - and that background shapes how I think about what ML needs to do to work for fundamental physics problems.</p>
+      <p>I develop new ML methods — foundation models, PDE surrogates, mechanistic interpretability — and apply them to fundamental physics problems ranging from continuum dynamics to astrophysics.</p>
+      <p>I currently lead efforts on foundation models for scientific data at Cambridge and within the <a href="https://polymathic-ai.org" target="_blank">Polymathic AI</a> collaboration.</p>
+    </div>
+  </div>
+
+  <!-- PAPERS -->
+  <div class="sec" id="papers">
+    <div class="sec-title">Publications</div>
+    <p style="font-size:.83rem;color:var(--muted);margin-bottom:1.4rem">For an up-to-date publication list and citation metrics, see <a href="https://scholar.google.com/citations?user=KtPHj74AAAAJ&hl=en" target="_blank">Google Scholar</a>.</p>
+    <div class="key">▶ alphabetical order listing per field convention &nbsp;·&nbsp; * supervised student &nbsp;·&nbsp;</div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('all',this)">All (18)</button>
+      <button class="tab" onclick="switchTab('ml',this)">AI / ML</button>
+      <button class="tab" onclick="switchTab('astro',this)">Astrophysics</button>
+    </div>
+
+    <div class="papers-list">
+
+      <div class="paper" data-cat="ml">
+        <div class="p-num">—</div>
+        <div><div class="p-title">Emergent Transfer of a Physics Foundation Model from Simulation to Laboratory Turbulence
+        </div><div class="p-meta">P. Mukhopadhyay, S Nixon, R Watteaux et al.</div></div>
+        <div class="p-badges"><span class="p-badge v-ml">arxiv:2606.01470</span></div>
+      </div>
+
+      <div class="paper" data-cat="ml">
+        <div class="p-num">—</div>
+        <div><div class="p-title">Probabilistic Retrofitting of Learned Simulators</div><div class="p-meta">Diaconu*, Cranmer, Turner, Marwah & P. Mukhopadhyay</div></div>
+        <div class="p-badges"><span class="p-badge v-ml">ICML 2026</span><span class="p-badge v-ml">ICLR 2026 AI&PDE Workshop</span></div>
+      </div>
+
+      <div class="paper" data-cat="ml">
+        <div class="p-num">—</div>
+        <div><div class="p-title">Walrus: A Cross-Domain Foundation Model for Continuum Dynamics</div><div class="p-meta">McCabe, P. Mukhopadhyay, Marwah et al.</div></div>
+        <div class="p-badges"><span class="p-badge v-spot">★ ICML 2026 Spotlight</span></div>
+      </div>
+
+      <div class="paper" data-cat="ml">
+        <div class="p-num">—</div>
+        <div><div class="p-title">On the Value of Tokeniser Pretraining in Physics Foundation Models</div><div class="p-meta">Sotoudeh*, P. Mukhopadhyay, Ohana, McCabe, Lawrence, Ho, Cranmer</div></div>
+        <div class="p-badges"><span class="p-badge v-ml">ICLR 2026 AI&PDE Workshop</span></div>
+      </div>
+
+      <div class="paper" data-cat="ml">
+        <div class="p-num">01</div>
+        <div><div class="p-title">Overtone: Cyclic Patch Modulation for Clean, Efficient, and Flexible Physics Emulators</div><div class="p-meta">P. Mukhopadhyay, McCabe, Ohana, Cranmer · 2026</div></div>
+        <div class="p-badges"><span class="p-badge v-ml">ICLR 2026</span></div>
+      </div>
+
+      <div class="paper" data-cat="ml">
+        <div class="p-num">02</div>
+        <div><div class="p-title">Physics Steering: Causal Control of Cross-Domain Concepts in a Physics Foundation Model</div><div class="p-meta">Fear*, P. Mukhopadhyay, McCabe, Bietti, Cranmer · 2025</div></div>
+        <div class="p-badges"><span class="p-badge v-ml">NeurIPS 2025 Workshop</span></div>
+      </div>
+
+      <div class="paper" data-cat="ml">
+        <div class="p-num">03</div>
+        <div><div class="p-title">Predicting Partially Observable Dynamical Systems via Diffusion Models with a Multiscale Inference Scheme</div><div class="p-meta">Polymathic AI · 2025</div></div>
+        <div class="p-badges"><span class="p-badge v-ml">NeurIPS 2025</span></div>
+      </div>
+
+      <div class="paper" data-cat="ml">
+        <div class="p-num">04</div>
+        <div><div class="p-title">AION-1: Omnimodal Foundation Model for Astronomical Sciences</div><div class="p-meta">Polymathic AI · 2025</div></div>
+        <div class="p-badges"><span class="p-badge v-ml">NeurIPS 2025</span></div>
+      </div>
+
+      <div class="paper" data-cat="astro">
+        <div class="p-num">05</div>
+        <div><div class="p-title">Angle-Dependent In Situ Fast Flavor Transformations in Post-Neutron-Star-Merger Disks</div><div class="p-meta">Lund, P. Mukhopadhyay, Miller, McLaughlin · 2025</div></div>
+        <div class="p-badges"><span class="p-badge v-ap">ApJL 2025</span></div>
+      </div>
+
+      <div class="paper" data-cat="astro">
+        <div class="p-num">06</div>
+        <div><div class="p-title">Successful νp-process in Neutrino-Driven Outflows in Core-Collapse Supernovae</div><div class="p-meta">▶ Friedland, P. Mukhopadhyay, Patwardhan · 2025</div></div>
+        <div class="p-badges"><span class="p-badge v-ap">JCAP 2025</span></div>
+      </div>
+
+      <div class="paper" data-cat="ml">
+        <div class="p-num">07</div>
+        <div><div class="p-title">Compute-Adaptive Surrogate Modeling of Partial Differential Equations</div><div class="p-meta">P. Mukhopadhyay, McCabe, Ohana, Cranmer · 2025</div></div>
+        <div class="p-badges"><span class="p-badge v-ml">ICLR 2025 Workshop</span></div>
+      </div>
+
+      <div class="paper" data-cat="ml">
+        <div class="p-num">08</div>
+        <div><div class="p-title">The Well: A Large-Scale Collection of Diverse Physics Simulations for Machine Learning</div><div class="p-meta">Polymathic AI · 2024</div></div>
+        <div class="p-badges"><span class="p-badge v-ml">NeurIPS 2024</span></div>
+      </div>
+
+      <div class="paper" data-cat="astro">
+        <div class="p-num">09</div>
+        <div><div class="p-title">The Time Evolution of Fast Flavor Crossings in Post-Merger Disks Around a Black Hole Remnant</div><div class="p-meta">P. Mukhopadhyay, Miller, McLaughlin · 2024</div></div>
+        <div class="p-badges"><span class="p-badge v-ap">ApJ 2024</span></div>
+      </div>
+
+      <div class="paper" data-cat="astro">
+        <div class="p-num">10</div>
+        <div><div class="p-title">Cosmic-Ray Re-acceleration at Galactic Wind Termination Shock</div><div class="p-meta">P. Mukhopadhyay, Peretti, Globus, Simeon, Blandford · 2023</div></div>
+        <div class="p-badges"><span class="p-badge v-ap">ApJ 2023</span></div>
+      </div>
+
+      <div class="paper" data-cat="astro">
+        <div class="p-num">11</div>
+        <div><div class="p-title">Near-Critical Supernova Outflows and Their Neutrino Signatures</div><div class="p-meta">▶ Friedland, P. Mukhopadhyay · 2022</div></div>
+        <div class="p-badges"><span class="p-badge v-ap">Phys.Lett.B 2022</span></div>
+      </div>
+
+      <div class="paper" data-cat="astro">
+        <div class="p-num">12</div>
+        <div><div class="p-title">Self-Generated Cosmic-Ray Turbulence Can Explain the Morphology of TeV Halos</div><div class="p-meta">P. Mukhopadhyay, Linden · 2022</div></div>
+        <div class="p-badges"><span class="p-badge v-ap">Phys.Rev.D 2022</span></div>
+      </div>
+
+      <div class="paper" data-cat="astro">
+        <div class="p-num">13</div>
+        <div><div class="p-title">Celestial-Body Focused Dark Matter Annihilation Throughout the Galaxy</div><div class="p-meta">▶ Leane, Linden, P. Mukhopadhyay, Toro · 2021</div></div>
+        <div class="p-badges"><span class="p-badge v-ap">Phys.Rev.D 2021</span></div>
+      </div>
+
+      <div class="paper" data-cat="astro">
+        <div class="p-num">14</div>
+        <div><div class="p-title">Carter Constant and Superintegrability</div><div class="p-meta">P. Mukhopadhyay, Nayak · 2018</div></div>
+        <div class="p-badges"><span class="p-badge v-ap">IJMPD 2018</span></div>
+      </div>
+
+      <div class="paper" data-cat="astro">
+        <div class="p-num">15</div>
+        <div><div class="p-title">Quark Stars Admixed with Dark Matter</div><div class="p-meta">P. Mukhopadhyay, Bielich · 2016</div></div>
+        <div class="p-badges"><span class="p-badge v-ap">Phys.Rev.D 2016</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CAREER TRAJECTORY -->
+  <div class="sec" id="background">
+    <div class="sec-title">Career Trajectory</div>
+    <div class="traj-grid">
+      <div>
+        <div class="traj-col-title">Experience</div>
+        <div class="timeline">
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <div class="t-head"><div class="t-role">Assistant Research Professor</div><div class="t-period">May 2025 – present</div></div>
+            <div class="t-org">University of Cambridge, DAMTP</div>
+            <div class="t-desc">Physics-AI Fellow, Infosys–Cambridge AI Centre.</div>
+          </div>
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <div class="t-head"><div class="t-role">Neutrino Theory Network Fellow</div><div class="t-period">Oct 2022 – May 2025</div></div>
+            <div class="t-org">UC Berkeley, CA</div>
+            <div class="t-desc">Independent research fellowship.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="traj-col-title">Education</div>
+        <div class="timeline">
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <div class="t-head"><div class="t-role">Ph.D. Theoretical & Computational Astrophysics</div><div class="t-period">2017–2022</div></div>
+            <div class="t-org">Stanford University</div>
+            <div class="t-desc">Thesis: Neutrino driven outflows in supernovae — from hydrodynamics to nucleosynthesis.</div>
+          </div>
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <div class="t-head"><div class="t-role">B.S.–M.S. Dual Degree, Physics</div><div class="t-period">2012–2017</div></div>
+            <div class="t-org">Indian Institute of Science Education and Research, Kolkata, India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STUDENTS -->
+  <div class="sec" id="students">
+    <div class="sec-title">Students & Advising</div>
+    <div class="prose">
+      <p>I am open to supervising PhD and masters students. If you're interested in working with me, feel free to get in touch.</p>
+    </div>
+    <a class="cv-link" href="payel_cv_june_2026.pdf" target="_blank" style="margin-top:.9rem">↓ Download CV (PDF)</a>
+  </div>
+
+  <!-- MEDIA -->
+  <div class="sec" id="media">
+    <div class="sec-title">Videos, Blogs & Press</div>
+    <div class="media-list">
+
+      <div class="media-item">
+        <span class="media-badge mb-press">Press</span>
+        <div>
+          <div class="media-title"><a href="https://www.cam.ac.uk/research/news/new-ai-models-trained-on-physics-not-words-are-driving-scientific-discovery" target="_blank">New AI models trained on physics, not words, are driving scientific discovery</a></div>
+          <div class="media-sub">University of Cambridge · Walrus</div>
+        </div>
+      </div>
+
+      <div class="media-item">
+        <span class="media-badge mb-press">Press</span>
+        <div>
+          <div class="media-title"><a href="https://www.cam.ac.uk/research/news/new-datasets-will-train-ai-models-to-think-like-scientists" target="_blank">New datasets will train AI models to think like scientists</a></div>
+          <div class="media-sub">University of Cambridge · The Well</div>
+        </div>
+      </div>
+
+      <!-- Replace # with your blog URL and update the title -->
+      <div class="media-item">
+        <span class="media-badge mb-blog">Blog</span>
+        <div>
+          <div class="media-title"><a href="https://polymathic-ai.org/blog/walrus-rti/" target="_blank">Emergent Transfer of a Physics Foundation Model from Simulation to Laboratory Turbulence</a></div>
+        </div>
+      </div>
+
+      <div class="media-item">
+        <span class="media-badge mb-blog">Blog</span>
+        <div>
+          <div class="media-title"><a href="https://polymathic-ai.org/blog/overtone/" target="_blank">Overtone: Flexible and Cleaner Physics Emulators with Cyclic Patch Modulation</a></div>
+        </div>
+      </div>
+
+      <div class="media-item">
+        <span class="media-badge mb-blog">Blog</span>
+        <div>
+          <div class="media-title"><a href="https://polymathic-ai.org/blog/walrus/" target="_blank">Walrus: A Cross-domain Foundation Model for Continuum Dynamics</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="sec" id="contact">
+    <div class="sec-title">Contact</div>
+    <div class="contact-block">
+      <div>
+        <div class="cc-label">Email</div>
+        <div class="cc-val"><a href="mailto:pm858@cam.ac.uk">pm858@cam.ac.uk</a></div>
+        <br>
+        <div class="cc-label">Elsewhere</div>
+        <div class="cc-val">
+          <a href="https://scholar.google.com/citations?user=KtPHj74AAAAJ&hl=en" target="_blank">Google Scholar</a><br>
+          <a href="https://github.com/payelmuk150" target="_blank">GitHub</a><br>
+          <a href="https://www.linkedin.com/in/payel-mukhopadhyay-5529b026b/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+      <div>
+        <div class="cc-label">Address</div>
+        <div class="cc-val">
+          Department of Applied Mathematics<br>
+          & Theoretical Physics (DAMTP)<br>
+          University of Cambridge<br>
+          Cambridge, UK
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>Dr. Payel Mukhopadhyay · DAMTP, University of Cambridge</footer>
+
+<script>
+function switchTab(cat, btn){
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.paper').forEach(p => {
+    p.style.display = (cat === 'all' || p.dataset.cat === cat) ? 'grid' : 'none';
+  });
+}
+</script>
+</body>
+</html>

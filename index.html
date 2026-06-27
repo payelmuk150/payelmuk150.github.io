@@ -9,22 +9,22 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#faf8f4;--bg2:#f3f0ea;--bg3:#edeae2;--card:#fff;
-  --border:#e0dbd0;--border2:#ccc8bc;
-  --gold:#8a6a1f;--gold-mid:#b8892a;--gold-light:#f5ecd4;
-  --muted:#7a7468;--text:#1e1c18;--text2:#4a4640;
-  --accent:#1a5fa8;--accent-bg:#e8f0fb;
-  --teal:#0e6e5e;--teal-bg:#e4f4f0;
+  --bg:#fbfaf7;--bg2:#f5f2ec;--bg3:#ece7dc;--card:#fffdf9;
+  --border:#ddd6ca;--border2:#c8beb0;
+  --gold:#2f3e46;--gold-mid:#1f2933;--gold-light:#edf1f3;
+  --muted:#6f6a62;--text:#1f1f1c;--text2:#44413b;
+  --accent:#355c7d;--accent-bg:#eef3f7;
+  --teal:#4f6f64;--teal-bg:#edf4f1;
   --serif:'EB Garamond',Georgia,serif;
-  --sans:'Instrument Sans',sans-serif;
-  --mono:'DM Mono',monospace;
+  --sans:'Instrument Sans',Arial,sans-serif;
+  --mono:'Instrument Sans',Arial,sans-serif;
   --max:720px;
 }
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.7}
 a{color:var(--gold);text-decoration:none}
 a:hover{color:var(--gold-mid);text-decoration:underline}
 
-nav{border-bottom:1px solid var(--border);padding:.9rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(250,248,244,.97);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+nav{border-bottom:1px solid var(--border);padding:.9rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(247,241,251,.97);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
 .nav-name{font-family:var(--serif);font-size:.95rem;color:var(--gold)}
 .nav-links{display:flex;gap:1.4rem}
 .nav-links a{font-family:var(--mono);font-size:.67rem;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;text-decoration:none;transition:color .2s}
@@ -41,9 +41,9 @@ nav{border-bottom:1px solid var(--border);padding:.9rem 2rem;display:flex;justif
 .intro-links a{font-family:var(--mono);font-size:.67rem;color:var(--muted);letter-spacing:.05em;text-decoration:none;transition:color .2s}
 .intro-links a:hover{color:var(--gold)}
 .intro-links span{color:var(--border2)}
-.photo{width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid var(--border);box-shadow:0 4px 20px rgba(138,106,31,.1);display:block}
+.photo{width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid var(--border);box-shadow:0 4px 20px rgba(47,62,70,.08);display:block}
 .photo-placeholder{width:150px;height:150px;border-radius:50%;background:var(--bg2);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:2.5rem;color:var(--border2)}
-.cv-link{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--mono);font-size:.72rem;color:var(--gold);border:1px solid rgba(138,106,31,.3);padding:.35rem .8rem;border-radius:4px;text-decoration:none;transition:all .2s}
+.cv-link{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--mono);font-size:.72rem;color:var(--gold);border:1px solid rgba(47,62,70,.25);padding:.35rem .8rem;border-radius:4px;text-decoration:none;transition:all .2s}
 .cv-link:hover{background:var(--gold-light);text-decoration:none}
 
 hr{border:none;border-top:1px solid var(--border);margin:0}
@@ -94,7 +94,7 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .p-badge{font-family:var(--mono);font-size:.62rem;padding:.2rem .5rem;border-radius:3px;white-space:nowrap}
 .v-ml{background:var(--accent-bg);color:var(--accent);border:1px solid rgba(26,95,168,.2)}
 .v-ap{background:var(--teal-bg);color:var(--teal);border:1px solid rgba(14,110,94,.2)}
-.v-spot{background:#fef3d0;color:#7a5000;border:2px solid #c8940a;font-weight:600}
+.v-spot{background:#edf1f3;color:#1f2933;border:1px solid #9aa6ad;font-weight:600}
 .full-list-note{font-size:.8rem;color:var(--muted);margin-top:1.2rem}
 .key{font-size:.74rem;color:var(--muted);margin-bottom:1.3rem;font-family:var(--mono)}
 
@@ -170,8 +170,8 @@ footer{border-top:1px solid var(--border);padding:1.5rem;text-align:center;font-
     <div class="sec-title">Research</div>
     <div class="prose">
       <p>My research is at the intersection of machine learning and the physical sciences. I came to this from astrophysics - fluid flows around supernovae, neutron star mergers, neutrino physics, cosmic rays - and that background shapes how I think about what ML needs to do to work for fundamental physics problems.</p>
-      <p>I develop new ML methods — foundation models, PDE surrogates, mechanistic interpretability — and apply them to fundamental physics problems ranging from continuum dynamics to astrophysics.</p>
-      <p>I currently lead efforts on foundation models for scientific data at Cambridge and within the <a href="https://polymathic-ai.org" target="_blank">Polymathic AI</a> collaboration.</p>
+      <p>I develop machine learning methods for dynamical systems, including foundation models, ML-accelerated PDE surrogates, and mechanistic interpretability, with applications in a broad range of domains including continuum dynamics and astrophysics.</p>
+      <p>I currently lead efforts on foundation models for scientific data at Infosys–Cambridge AI lab, Department of Applied Math and Theoretical Physics at Cambridge, and as a member of the <a href="https://polymathic-ai.org" target="_blank">Polymathic AI</a> collaboration.</p>
     </div>
   </div>
 
@@ -179,7 +179,7 @@ footer{border-top:1px solid var(--border);padding:1.5rem;text-align:center;font-
   <div class="sec" id="papers">
     <div class="sec-title">Publications</div>
     <p style="font-size:.83rem;color:var(--muted);margin-bottom:1.4rem">For an up-to-date publication list and citation metrics, see <a href="https://scholar.google.com/citations?user=KtPHj74AAAAJ&hl=en" target="_blank">Google Scholar</a>.</p>
-    <div class="key">▶ alphabetical order listing per field convention &nbsp;·&nbsp; * supervised student &nbsp;·&nbsp;</div>
+    <div class="key">▶ alphabetical order listing per field convention &nbsp;·&nbsp; * student project under my primary supervision &nbsp;·&nbsp;</div>
 
     <div class="tabs">
       <button class="tab active" onclick="switchTab('all',this)">All (18)</button>

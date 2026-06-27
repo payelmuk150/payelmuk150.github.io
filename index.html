@@ -9,8 +9,8 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#fbfaf7;--bg2:#f5f2ec;--bg3:#ece7dc;--card:#fffdf9;
-  --border:#ddd6ca;--border2:#c8beb0;
+  --bg:#fbfbfd;--bg2:#f2f3f7;--bg3:#e8eaf0;--card:#ffffff;
+  --border:#d9dde6;--border2:#b9c0cc;
   --gold:#2f3e46;--gold-mid:#1f2933;--gold-light:#edf1f3;
   --muted:#6f6a62;--text:#1f1f1c;--text2:#44413b;
   --accent:#355c7d;--accent-bg:#eef3f7;
@@ -20,15 +20,87 @@
   --mono:'Instrument Sans',Arial,sans-serif;
   --max:720px;
 }
+[data-theme="dark"]{
+  --bg:#111315;
+  --bg2:#181b1f;
+  --bg3:#20242a;
+  --card:#181b1f;
+
+  --border:#30363d;
+  --border2:#4b5563;
+
+  --gold:#d8dee9;
+  --gold-mid:#ffffff;
+  --gold-light:#252b32;
+
+  --muted:#a9b0ba;
+  --text:#f3f4f6;
+  --text2:#d7dce3;
+
+  --accent:#9db7d5;
+  --accent-bg:#1c2733;
+
+  --teal:#9fc8bc;
+  --teal-bg:#1a2a27;
+}
+[data-theme="dark"] #research{background:#181520;}
+[data-theme="dark"] #papers{background:#141a22;}
+[data-theme="dark"] #background{background:#161d18;}
+[data-theme="dark"] #students{background:#201a14;}
+[data-theme="dark"] #media{background:#14201d;}
+[data-theme="dark"] #contact{background:#1d1917;}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.7}
 a{color:var(--gold);text-decoration:none}
 a:hover{color:var(--gold-mid);text-decoration:underline}
 
-nav{border-bottom:1px solid var(--border);padding:.9rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(247,241,251,.97);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+nav{border-bottom:1px solid var(--border);padding:.9rem 2rem;display:flex;justify-content:space-between;align-items:center;background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
 .nav-name{font-family:var(--serif);font-size:.95rem;color:var(--gold)}
 .nav-links{display:flex;gap:1.4rem}
 .nav-links a{font-family:var(--mono);font-size:.67rem;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--gold)}
+.theme-toggle{
+border:1px solid var(--border2);
+background:var(--card);
+color:var(--gold);
+font-family:var(--sans);
+font-size:1.15rem;
+font-weight:600;
+width:2.4rem;
+height:2.4rem;
+border-radius:50%;
+cursor:pointer;
+transition:all .2s;
+box-shadow:0 2px 10px rgba(47,62,70,.10);
+}
+
+.theme-toggle:hover{
+color:var(--gold-mid);
+border-color:var(--gold);
+background:var(--gold-light);
+transform:translateY(-1px);
+}
+
+.theme-toggle:focus-visible{
+outline:2px solid var(--gold);
+outline-offset:3px;
+}
+
+html.theme-transition,
+html.theme-transition *{
+transition:
+background-color .45s ease,
+color .45s ease,
+border-color .45s ease,
+box-shadow .45s ease;
+}
+
+@media (prefers-reduced-motion: reduce){
+html.theme-transition,
+html.theme-transition *{
+transition:none;
+}
+}
+
 
 .page{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
 
@@ -48,8 +120,24 @@ nav{border-bottom:1px solid var(--border);padding:.9rem 2rem;display:flex;justif
 
 hr{border:none;border-top:1px solid var(--border);margin:0}
 
-.sec{padding:2.8rem 0}
-.sec+.sec{border-top:1px solid var(--border)}
+.sec{
+  padding:2.4rem 1.4rem;
+  margin:1.2rem 0;
+  border-radius:14px;
+  border:1px solid var(--border);
+}
+
+.sec+.sec{
+  border-top:1px solid var(--border);
+}
+
+#research{background:#f6f1fb;}    /* soft lavender */
+#papers{background:#f2f7fb;}      /* pale blue */
+#background{background:#f5f8f1;}  /* soft sage */
+#students{background:#fbf6ef;}    /* warm cream/peach */
+#media{background:#f1f7f5;}       /* pale mint */
+#contact{background:#f7f3f0;}     /* soft clay */
+
 .sec-title{font-family:var(--serif);font-size:1.35rem;font-weight:400;color:var(--text);margin-bottom:1.3rem}
 .prose{font-size:.9rem;color:var(--text2);line-height:1.88}
 .prose p+p{margin-top:.95rem}
@@ -108,10 +196,39 @@ hr{border:none;border-top:1px solid var(--border);margin:0}
 .media-sub{font-family:var(--mono);font-size:.68rem;color:var(--muted)}
 .ph{font-style:italic;color:var(--border2)}
 
-.contact-block{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.cc-label{font-family:var(--mono);font-size:.63rem;color:var(--teal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
-.cc-val{font-size:.85rem;color:var(--text2);line-height:1.75}
+.contact-block{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:start;
+}
+.cc-label{
+  font-family:var(--mono);
+  font-size:.63rem;
+  color:var(--teal);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  margin-bottom:.5rem;
+}
+.cc-val{
+  font-size:.8rem;
+  color:var(--text2);
+  line-height:1.65;
+}
 .cc-val a{color:var(--gold)}
+
+.cc-val strong{
+  color:var(--text);
+  font-weight:600;
+}
+
+.cc-val + .cc-label{
+  margin-top:1.2rem;
+}
+
+.address-entry + .address-entry{
+  margin-top:.7rem;
+}
 
 footer{border-top:1px solid var(--border);padding:1.5rem;text-align:center;font-family:var(--mono);font-size:.65rem;color:var(--muted);background:var(--bg2)}
 
@@ -137,6 +254,7 @@ footer{border-top:1px solid var(--border);padding:1.5rem;text-align:center;font-
     <a href="#media">Media</a>
     <a href="#contact">Contact</a>
   </div>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle day/night mode">☾</button>
 </nav>
 
 <div class="page">
@@ -316,9 +434,9 @@ footer{border-top:1px solid var(--border);padding:1.5rem;text-align:center;font-
         <div class="timeline">
           <div class="t-item">
             <div class="t-dot"></div>
-            <div class="t-head"><div class="t-role">Physics-AI Fellow, Independent fellowship</div><div class="t-period">May 2025 – present</div></div>
-            <div class="t-desc">Assistant Research Professor</div>
-            <div class="t-org">Infosys–Cambridge AI Centre; University of Cambridge, DAMTP</div>
+            <div class="t-head"><div class="t-role">Physics-AI Fellow, Assistant Research Professor</div><div class="t-period">May 2025 – present</div></div>
+            <div class="t-desc">Independent funding from Infosys–Cambridge AI Centre</div>
+            <div class="t-org">DAMTP, University of Cambridge</div>
           </div>
           <div class="t-item">
             <div class="t-dot"></div>
@@ -409,24 +527,37 @@ footer{border-top:1px solid var(--border);padding:1.5rem;text-align:center;font-
       <div>
         <div class="cc-label">Email</div>
         <div class="cc-val"><a href="mailto:pm858@cam.ac.uk">pm858@cam.ac.uk</a></div>
-        <br>
-        <div class="cc-label">Elsewhere</div>
-        <div class="cc-val">
-          <a href="https://scholar.google.com/citations?user=KtPHj74AAAAJ&hl=en" target="_blank">Google Scholar</a><br>
-          <a href="https://github.com/payelmuk150" target="_blank">GitHub</a><br>
-          <a href="https://www.linkedin.com/in/payel-mukhopadhyay-5529b026b/" target="_blank">LinkedIn</a>
-        </div>
+    
+    <div class="cc-label">Elsewhere</div>
+    <div class="cc-val">
+      <a href="https://scholar.google.com/citations?user=KtPHj74AAAAJ&hl=en" target="_blank">Google Scholar</a><br>
+      <a href="https://github.com/payelmuk150" target="_blank">GitHub</a><br>
+      <a href="https://www.linkedin.com/in/payel-mukhopadhyay-5529b026b/" target="_blank">LinkedIn</a>
+    </div>
+    
       </div>
+    
       <div>
-        <div class="cc-label">Address</div>
-        <div class="cc-val">
-          Department of Applied Mathematics<br>
-          & Theoretical Physics (DAMTP)<br>
-          University of Cambridge<br>
-          Cambridge, UK
-        </div>
+        <div class="cc-label">Addresses</div>
+    
+    <div class="cc-val address-entry">
+      <strong>London</strong><br>
+      14th Floor, 10 Upper Bank Street<br>
+      Canary Wharf<br>
+      London, UK
+    </div>
+    
+    <div class="cc-val address-entry">
+      <strong>Cambridge</strong><br>
+      Department of Applied Mathematics<br>
+      &amp; Theoretical Physics (DAMTP)<br>
+      University of Cambridge<br>
+      Cambridge, UK
+    </div>
+    
       </div>
     </div>
+    
   </div>
 
 </div>
@@ -434,13 +565,43 @@ footer{border-top:1px solid var(--border);padding:1.5rem;text-align:center;font-
 <footer>Dr. Payel Mukhopadhyay · DAMTP, University of Cambridge</footer>
 
 <script>
-function switchTab(cat, btn){
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.paper').forEach(p => {
-    p.style.display = (cat === 'all' || p.dataset.cat === cat) ? 'grid' : 'none';
-  });
-}
-</script>
+  function switchTab(cat, btn){
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.paper').forEach(p => {
+      p.style.display = (cat === 'all' || p.dataset.cat === cat) ? 'grid' : 'none';
+    });
+  }
+  
+  function applyTheme(theme){
+    const button = document.querySelector('.theme-toggle');
+  
+    if(theme === 'dark'){
+      document.documentElement.setAttribute('data-theme','dark');
+      if(button) button.textContent = '☀';
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      if(button) button.textContent = '☾';
+    }
+  }
+  
+  function toggleTheme(){
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+  
+    document.documentElement.classList.add('theme-transition');
+    applyTheme(next);
+    localStorage.setItem('theme', next);
+  
+    window.setTimeout(() => {
+      document.documentElement.classList.remove('theme-transition');
+    }, 500);
+  }
+  
+  const savedTheme = localStorage.getItem('theme');
+  if(savedTheme === 'dark'){
+    applyTheme('dark');
+  }
+  </script>  
 </body>
 </html>
